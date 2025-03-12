@@ -94,7 +94,7 @@ header .hero p {
     background: #ff3b2f;
 }
 
-#services, #packages, #reserve {
+#services, #packages, #portfolio, #reserve {
     padding: 40px 20px;
     text-align: center;
     background-color: #262626; /* Dark section background */
@@ -108,16 +108,16 @@ h2 {
     color: #ff6f61; /* Accent color for headings */
 }
 
-.service-list, .package-list {
+.service-list, .package-list, .gallery {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-.service-item, .package-item {
+.service-item, .package-item, .gallery-item-container {
     background: #333;
     margin: 10px;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 22%;
@@ -125,7 +125,17 @@ h2 {
     transition: transform 0.3s ease;
 }
 
-.service-item:hover, .package-item:hover {
+.gallery-item-container {
+    padding: 0; /* Remove padding for images */
+}
+
+.gallery-item {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.service-item:hover, .package-item:hover, .gallery-item-container:hover {
     transform: translateY(-10px);
 }
 
@@ -165,13 +175,13 @@ footer {
         display: block;
     }
 
-    .service-item, .package-item {
+    .service-item, .package-item, .gallery-item-container {
         width: 45%;
     }
 }
 
 @media (max-width: 480px) {
-    .service-item, .package-item {
+    .service-item, .package-item, .gallery-item-container {
         width: 100%;
     }
 }

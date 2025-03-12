@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav>
         <div class="logo">
             <h1>EventPlanner</h1>
@@ -16,6 +17,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#packages">Packages</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#reserve">Reserve</a></li>
         </ul>
         <div class="hamburger" id="hamburger">
@@ -23,6 +25,7 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <header id="home">
         <div class="hero">
             <h1>Create Lasting Memories</h1>
@@ -31,6 +34,7 @@
         </div>
     </header>
 
+    <!-- Services Section -->
     <section id="services">
         <h2>Our Services</h2>
         <div class="service-list">
@@ -57,6 +61,7 @@
         </div>
     </section>
 
+    <!-- Packages Section -->
     <section id="packages">
         <h2>Our Packages</h2>
         <div class="package-list">
@@ -79,22 +84,52 @@
         </div>
     </section>
 
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2>Our Portfolio</h2>
+        <div class="gallery" id="gallery">
+            <!-- Images will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <!-- Reserve Section -->
     <section id="reserve">
         <h2>Reserve Now</h2>
         <p>Contact us at: <a href="mailto:weddingorganizer233@gmail.com">weddingorganizer233@gmail.com</a></p>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Event Planning. All rights reserved.</p>
     </footer>
 
+    <!-- JavaScript for Hamburger Menu and Image Loading -->
     <script>
+        // Hamburger Menu Toggle
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.querySelector('.nav-links');
 
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+
+        // Dynamically Load Images
+        const gallery = document.getElementById('gallery');
+        const imageCount = 20; // Total number of images
+        const imageFolder = 'images/'; // Folder containing images
+
+        for (let i = 1; i <= imageCount; i++) {
+            const img = document.createElement('img');
+            img.src = `${imageFolder}event${i}.jpeg`;
+            img.alt = `Event Image ${i}`;
+            img.classList.add('gallery-item');
+
+            const galleryItem = document.createElement('div');
+            galleryItem.classList.add('gallery-item-container');
+            galleryItem.appendChild(img);
+
+            gallery.appendChild(galleryItem);
+        }
     </script>
 </body>
 </html>
