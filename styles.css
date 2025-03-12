@@ -2,30 +2,80 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #1a1a1a; /* Dark background */
+    color: #f4f4f4; /* Light text color */
     line-height: 1.6;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .logo h1 {
+    color: #fff;
+    margin: 0;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav .nav-links li {
+    margin-left: 20px;
+}
+
+nav .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+nav .hamburger {
+    display: none;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
 }
 
 header {
     background: url('your-header-image.jpg') no-repeat center center/cover;
     color: #fff;
-    padding: 60px 20px;
+    padding: 100px 20px;
     text-align: center;
+    position: relative;
 }
 
-header .header-content {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
 }
 
-header h1 {
+header .hero {
+    position: relative;
+    z-index: 1;
+}
+
+header .hero h1 {
     margin: 0;
     font-size: 3em;
 }
 
-header p {
+header .hero p {
     margin: 10px 0 20px;
     font-size: 1.2em;
 }
@@ -37,6 +87,7 @@ header p {
     text-decoration: none;
     border-radius: 5px;
     font-size: 1.1em;
+    transition: background 0.3s ease;
 }
 
 .cta-button:hover {
@@ -46,12 +97,15 @@ header p {
 #services, #packages, #reserve {
     padding: 40px 20px;
     text-align: center;
+    background-color: #262626; /* Dark section background */
+    margin: 20px 0;
+    border-radius: 10px;
 }
 
 h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
-    color: #333;
+    color: #ff6f61; /* Accent color for headings */
 }
 
 .service-list, .package-list {
@@ -61,13 +115,18 @@ h2 {
 }
 
 .service-item, .package-item {
-    background: #fff;
+    background: #333;
     margin: 10px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 22%;
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover, .package-item:hover {
+    transform: translateY(-10px);
 }
 
 .service-item i {
@@ -79,6 +138,7 @@ h2 {
 .service-item h3, .package-item h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
+    color: #fff;
 }
 
 footer {
@@ -90,6 +150,21 @@ footer {
 }
 
 @media (max-width: 768px) {
+    nav .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+    }
+
+    nav .nav-links.active {
+        display: flex;
+    }
+
+    nav .hamburger {
+        display: block;
+    }
+
     .service-item, .package-item {
         width: 45%;
     }

@@ -8,10 +8,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1>EVENT PLANNING</h1>
-            <p>We are here to create your lasting memories</p>
+    <nav>
+        <div class="logo">
+            <h1>EventPlanner</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#reserve">Reserve</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="hero">
+            <h1>Create Lasting Memories</h1>
+            <p>We specialize in making your events unforgettable with our expert planning and services.</p>
             <a href="mailto:weddingorganizer233@gmail.com?subject=Event Reservation&body=Hello, I would like to reserve your services for an event. Please provide more details." class="cta-button">Reserve Now</a>
         </div>
     </header>
@@ -72,5 +87,14 @@
     <footer>
         <p>&copy; 2025 Event Planning. All rights reserved.</p>
     </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
